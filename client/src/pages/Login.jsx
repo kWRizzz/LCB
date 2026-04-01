@@ -25,8 +25,8 @@ const Login = () => {
     e.preventDefault()
     console.log(formSubmit);
     const data = new FormData();
-    data.append("name ", formSubmit.name);
-    data.append("profilePicture ", formSubmit.profilePicture);
+    data.append("name", formSubmit.name);
+    data.append("profilePicture", formSubmit.profilePicture);
   }
 
   return (
