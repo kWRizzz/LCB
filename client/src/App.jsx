@@ -1,50 +1,15 @@
-import React, { lazy, Suspense } from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProtectedRoutes from './components/auth/ProtectedRoutes';
-
-const Home = lazy(() => import("./pages/Home"))
-const Login = lazy(() => import('./pages/Login'))
-
-let user = true
+import React from 'react'
 
 const App = () => {
-
-
-
   return (
-    <BrowserRouter>
-      <Suspense
-        fallback={<h1>Loading...</h1>}
-      >
-        <Routes>
-          <Route
-           
-            element={<ProtectedRoutes user={user} />}
-          >
-            <Route
-              path='/'
-              element={<Home/>}
-            />
-            <Route
-              path='/about'
-              element={
-                <>
-                  <h1>
-                    about
-                  </h1>
-                </>
-              }
-            />
-          </Route>
-          <Route
-            path='/login'
-            element={
-              <Login />
-            }
-          />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <div
+      className=' h-screen w-fit'
+    >
+
+      <h1 className=" bg-red-700 text-3xl font-bold underline">
+        Hello world!
+      </h1>
+    </div>
   )
 }
 
