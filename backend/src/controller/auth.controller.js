@@ -146,4 +146,4 @@ export const logoutUser = async (req, res) => {
             message: `not loggin out ${error}`
         })
     }
-}
+}   
