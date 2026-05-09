@@ -1,7 +1,7 @@
 import { hashPass, comparePass } from "../utils/hashing.js";
 import userModel from "../model/user.model.js"
 import { genToken } from "../utils/tokens.js";
-
+import tokenBlackList  from "../model/tokenBlackList.model.js"
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +107,9 @@ export const loginUser = async (req, res) => {
         });
 
     } catch (error) {
+
+
+
         console.log(`login error ${error}`);
 
         res.status(400).json({
@@ -128,6 +131,10 @@ export const loginUser = async (req, res) => {
 
 export const logoutUser = async (req, res) => {
     try {
+
+        await tokenBlackList.create({
+            token:req.cookies.token
+        })
         res.clearCookie("token");
 
         res.status(200).json({
